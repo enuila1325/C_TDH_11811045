@@ -7,6 +7,7 @@
 - :e-mail: enuila634@gmail.com
 - :link: [github.com/enuila1325](https://github.com/enuila1325)
 - :notes: [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+# Primera Parte
 
 ## Cpps
 ![](images/Main_Y_Recursiva.png)
@@ -16,8 +17,38 @@
 ![](images/Salida.jpeg)
 
 ---
-## :computer: Código
 
+# Segunda Parte
+
+## Cpps
+![](images/main_segunda_parte.png)
+
+---
+
+![](images/modificacion_metodo_recursivo.png)
+
+---
+![](images/impresion_agujas.png)
+
+---
+
+![](images/movimiento_entre_agujas.png)
+
+---
+
+![](images/codigo_completo.png)
+
+---
+## Salidas
+![](images/salida_grafica.jpeg)
+
+---
+
+![](images/salida_grafica(1).jpeg)
+
+---
+
+## :computer: Código
 - :blue_book: [Torres De Hanoi](https://github.com/enuila1325/C_TDH_11811045_AndresNuila)
 
 #### Herramientas:
