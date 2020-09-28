@@ -48,6 +48,18 @@
 
 ---
 
+# Tercera Parte
+
+## CPPs
+
+![](images/metodos3eraParte.png)
+
+---
+
+![](images/mainTerceraParte.png)
+
+---
+
 ## :computer: Código
 - :blue_book: [Torres De Hanoi](https://github.com/enuila1325/C_TDH_11811045_AndresNuila)
 

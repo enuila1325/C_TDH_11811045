@@ -179,7 +179,7 @@ void imprimirDiscos(WINDOW *principal, vector<WINDOW *> origen, vector<WINDOW *>
 {
     for (size_t i = 0; i < origen.size(); i++)
     {
-        //cout << "discos del 1 ->" << origen.at(i)->_maxx << endl;
+        //cout << "discos origen ->" << origen.at(i)->_maxx << endl;
         mvwin(origen.at(i), origen.at(i)->_begy, (principal->_maxx / 4) - (origen.at(i)->_maxx / 2));
         wrefresh(destino.at(i));
         wrefresh(principal);
@@ -188,11 +188,10 @@ void imprimirDiscos(WINDOW *principal, vector<WINDOW *> origen, vector<WINDOW *>
         wrefresh(conjunto.at(i));
         wrefresh(principal);
     }
-    //cout << "siguiente disco" << endl;
-    //cout << endl;
+    cout << endl;
     for (size_t i = 0; i < auxiliar.size(); i++)
     {
-        //cout << "discos del 2 ->" << auxiliar.at(i)->_maxx << endl;
+        //cout << "discos en auxiliar ->" << auxiliar.at(i)->_maxx << endl;
         mvwin(auxiliar.at(i), auxiliar.at(i)->_begy, (principal->_maxx / 2) - (origen.at(i)->_maxx / 2));
         wrefresh(destino.at(i));
         wrefresh(principal);
@@ -201,11 +200,10 @@ void imprimirDiscos(WINDOW *principal, vector<WINDOW *> origen, vector<WINDOW *>
         wrefresh(conjunto.at(i));
         wrefresh(principal);
     }
-    //cout << "siguiente disco" << endl;
-    //cout << endl;
+    cout << endl;
     for (size_t i = 0; i < destino.size(); i++)
     {
-        //cout << "discos del 3 ->" << destino.at(i)->_maxx << endl;
+        //cout << "discos en destino ->" << destino.at(i)->_maxx << endl;
         mvwin(destino.at(i), destino.at(i)->_begy, 3 * (principal->_maxx / 4) - (destino.at(i)->_maxx / 2));
         wrefresh(destino.at(i));
         wrefresh(principal);
@@ -227,25 +225,31 @@ vector<WINDOW *> moverDiscos(vector<WINDOW *> conjuntoDiscos, vector<WINDOW *> o
     WINDOW *aux = conjuntoDiscos.at(pos);
     agujaDestino.push_back(aux);
     imprimirDiscos(principal, origen, auxiliar, agujaDestino, conjuntoDiscos);
-
     return agujaDestino;
 }
 void hanoi(vector<WINDOW *> conjuntoDeDiscos, vector<WINDOW *> origen, vector<WINDOW *> auxiliar, vector<WINDOW *> destino, int discosTotales, WINDOW *principal, int controlador)
 {
-    while (getch() != 27)
+    // while (getch() != 27)
+    // {
+    if (discosTotales == 1)
     {
-        if (discosTotales == 1)
-        {
-            destino = moverDiscos(conjuntoDeDiscos, origen, auxiliar, destino, discosTotales, principal);
-            imprimirDiscos(principal, origen, auxiliar, destino, conjuntoDeDiscos);
-            //tipo = 1;
-        }
-        else
-        {
-            hanoi(conjuntoDeDiscos, origen, destino, auxiliar, discosTotales - 1, principal, controlador);
-            destino = moverDiscos(conjuntoDeDiscos, origen, auxiliar, destino, discosTotales, principal);
-            imprimirDiscos(principal, origen, auxiliar, destino, conjuntoDeDiscos);
-            hanoi(conjuntoDeDiscos, auxiliar, origen, destino, discosTotales - 1, principal, controlador);
-        }
+        destino = moverDiscos(conjuntoDeDiscos, origen, auxiliar, destino, discosTotales, principal);
+        imprimirDiscos(principal, origen, auxiliar, destino, conjuntoDeDiscos);
+        //tipo = 1;
     }
+    else
+    {
+        hanoi(conjuntoDeDiscos, origen, destino, auxiliar, discosTotales - 1, principal, controlador);
+        destino = moverDiscos(conjuntoDeDiscos, origen, auxiliar, destino, discosTotales, principal);
+        imprimirDiscos(principal, origen, auxiliar, destino, conjuntoDeDiscos);
+        hanoi(conjuntoDeDiscos, auxiliar, origen, destino, discosTotales - 1, principal, controlador);
+        //
+    }
+    // }
+
+    if (controlador == discosTotales)
+    {
+        imprimirDiscos(principal, origen, auxiliar, destino, conjuntoDeDiscos);
+    }
+
 }
